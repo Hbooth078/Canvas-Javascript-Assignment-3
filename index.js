@@ -179,7 +179,6 @@ window.addEventListener("resize", function (event) {
 
 window.requestAnimationFrame(animate);
 
-// The main game loop
 function animate(timestamp) {
   if (!lastTimestamp) {
     lastTimestamp = timestamp;
@@ -187,96 +186,66 @@ function animate(timestamp) {
     return;
   }
 
+  let timePassed = timestamp - lastTimestamp;
+
   switch (phase) {
-    case "waiting":
-      return; // Stop the loop
-    case "stretching": {
-      sticks.last().length += (timestamp - lastTimestamp) / stretchingSpeed;
+    case "stretching":
+      sticks[sticks.length - 1].length += timePassed / stretchingSpeed;
       break;
-    }
-    case "turning": {
-      sticks.last().rotation += (timestamp - lastTimestamp) / turningSpeed;
 
-      if (sticks.last().rotation > 90) {
-        sticks.last().rotation = 90;
-
-        const [nextPlatform, perfectHit] = thePlatformTheStickHits();
-        if (nextPlatform) {
-          // Increase score
-          score += perfectHit ? 2 : 1;
-          scoreElement.innerText = score;
-
-          if (perfectHit) {
-            perfectElement.style.opacity = 1;
-            setTimeout(() => (perfectElement.style.opacity = 0), 1000);
-          }
-
-          generatePlatform();
-          generateTree();
-          generateTree();
-        }
-
+    case "turning":
+      sticks[sticks.length - 1].rotation += timePassed / turningSpeed;
+      if (sticks[sticks.length - 1].rotation >= 90) {
+        sticks[sticks.length - 1].rotation = 90;
         phase = "walking";
       }
       break;
-    }
-    case "walking": {
-      heroX += (timestamp - lastTimestamp) / walkingSpeed;
 
-      const [nextPlatform] = thePlatformTheStickHits();
-      if (nextPlatform) {
-        // If hero will reach another platform then limit it's position at it's edge
-        const maxHeroX = nextPlatform.x + nextPlatform.w - heroDistanceFromEdge;
-        if (heroX > maxHeroX) {
-          heroX = maxHeroX;
+    case "walking":
+      heroX += timePassed / walkingSpeed;
+      const stick = sticks[sticks.length - 1];
+      const stickEndX = stick.x + stick.length;
+      const nextPlatform = platforms[1];
+
+      if (heroX > stickEndX) {
+        // Check if stick lands on platform
+        if (
+          stickEndX >= nextPlatform.x &&
+          stickEndX <= nextPlatform.x + nextPlatform.w
+        ) {
           phase = "transitioning";
-        }
-      } else {
-        // If hero won't reach another platform then limit it's position at the end of the pole
-        const maxHeroX = sticks.last().x + sticks.last().length + heroWidth;
-        if (heroX > maxHeroX) {
-          heroX = maxHeroX;
+          score += 1;
+          scoreElement.innerText = score;
+        } else {
           phase = "falling";
         }
       }
       break;
-    }
-    case "transitioning": {
-      sceneOffset += (timestamp - lastTimestamp) / transitioningSpeed;
 
-      const [nextPlatform] = thePlatformTheStickHits();
-      if (sceneOffset > nextPlatform.x + nextPlatform.w - paddingX) {
-        // Add the next step
-        sticks.push({
-          x: nextPlatform.x + nextPlatform.w,
-          length: 0,
-          rotation: 0
-        });
+    case "transitioning":
+      sceneOffset += timePassed / transitioningSpeed;
+      if (sceneOffset >= platforms[1].x - platforms[0].x) {
+        // Shift platforms and reset for next round
+        sceneOffset = 0;
+        const firstPlatform = platforms.shift();
+        platforms.push(generatePlatform());
+        sticks = [createStick()];
+        heroX = platforms[0].x + platforms[0].w - 30;
         phase = "waiting";
       }
       break;
-    }
-    case "falling": {
-      if (sticks.last().rotation < 180)
-        sticks.last().rotation += (timestamp - lastTimestamp) / turningSpeed;
 
-      heroY += (timestamp - lastTimestamp) / fallingSpeed;
-      const maxHeroY =
-        platformHeight + 100 + (window.innerHeight - canvasHeight) / 2;
-      if (heroY > maxHeroY) {
+    case "falling":
+      heroY += timePassed / fallingSpeed;
+      if (heroY > canvasHeight) {
         restartButton.style.display = "block";
-        return;
       }
       break;
-    }
-    default:
-      throw Error("Wrong phase");
   }
 
   draw();
-  window.requestAnimationFrame(animate);
-
   lastTimestamp = timestamp;
+  window.requestAnimationFrame(animate);
 }
 
 // Returns the platform the stick hit (if it didn't hit any stick then return undefined)
