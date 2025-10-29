@@ -1,22 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stick Hero</title>
-  <link rel="stylesheet" href="index.css" />
-  <script src="index.js" defer></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-   <header>
+  <header>
     <h1>Hailee Booth – Stick Hero</h1>
   </header>
-  <div class="container">
-    <div id="score"></div>
-    <canvas id="game" width="375" height="375"></canvas>
-    <div id="introduction">Hold down the mouse to stretch out a stick</div>
-    <div id="perfect">DOUBLE SCORE</div>
-    <button id="restart">RESTART</button>
-  </div>
+    <section class="game-area">
+      <canvas id="game" width="375" height="375"></canvas>
+      <div id="score"></div>
+      <div id="introduction">Hold down the mouse to stretch out a stick</div>
+      <div id="perfect">DOUBLE SCORE</div>
+      <button id="restart">RESTART</button>
+    </section>
 
+    <section class="reflection">
+      <p>This assignment was a fun challenge! It helped me understand how canvas animations work and how game logic is structured in JavaScript.</p>
+      <p>Getting the stick to rotate and land correctly took some trial and error, but it was rewarding to see it come together.</p>
+    </section>
   <a id="youtube" href="https://youtu.be/eue3UdFvwPo" target="_top">
     <span>See how this game was made</span>
   </a>
@@ -25,4 +31,4 @@
   </div>
 </body>
 </html>
-
+ 
