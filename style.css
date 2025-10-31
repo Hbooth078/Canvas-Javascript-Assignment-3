@@ -3,17 +3,17 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: url('background.jpg') no-repeat center center fixed;
-  background-size: cover;
   cursor: pointer;
+  background-color: #F5EEF8; /* light lavender background */
 }
+
 
 /* Header styling */
 header {
-  background-color: #6C3483;
+  background-color: #6C3483; /* deep purple */
   padding: 1em;
   text-align: center;
-  color: #D2B4DE;
+  color: #D2B4DE; /* soft lavender text */
 }
 
 /* Reflection paragraph */
@@ -27,11 +27,15 @@ header {
   border-radius: 10px;
 }
 
-/* Canvas styling */
-canvas#game {
-  background: url('Tv Wallpaper.jpg') no-repeat center center;
-  background-size: cover;
-  border: 2px solid #D2B4DE;
+header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+header p {
+  margin-top: 0.5em;
+  font-size: 1em;
+  color: #E8DAEF; /* pale purple */
 }
 
 /* Container layout */
@@ -51,7 +55,7 @@ canvas#game {
   right: 30px;
   font-size: 2em;
   font-weight: 900;
-  color: #AF7AC5;
+  color: #AF7AC5; /* vibrant purple */
 }
 
 /* Introduction box */
@@ -63,8 +67,8 @@ canvas#game {
   font-size: 0.8em;
   text-align: center;
   transition: opacity 2s;
-  color: #4A235A;
-  background-color: rgba(230, 230, 250, 0.8);
+  color: #4A235A; /* dark plum */
+  background-color: rgba(230, 230, 250, 0.8); /* lavender tint */
   border-radius: 10px;
   padding: 10px;
 }
@@ -76,7 +80,7 @@ canvas#game {
   position: absolute;
   border-radius: 50%;
   color: white;
-  background-color: #8E44AD;
+  background-color: #8E44AD; /* royal purple */
   border: none;
   font-weight: 700;
   font-size: 1.2em;
@@ -92,6 +96,76 @@ canvas#game {
   transition: opacity 2s;
   font-size: 1.5em;
   font-weight: bold;
-  color: #BB8FCE;
+  color: #BB8FCE; /* soft purple */
 }
 
+/* YouTube button and card */
+#youtube,
+#youtube-card {
+  display: none;
+}
+
+@media (min-height: 425px) {
+  #youtube {
+    z-index: 2;
+    display: block;
+    width: 100px;
+    height: 70px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: #9B59B6; /* purple button */
+    border-radius: 50% / 11%;
+    transform: scale(0.8);
+    transition: transform 0.5s;
+  }
+
+  #youtube:hover,
+  #youtube:focus {
+    transform: scale(0.9);
+  }
+
+  #youtube::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 7.5%;
+    left: -6%;
+    width: 112%;
+    height: 85%;
+    background: #9B59B6;
+    border-radius: 9% / 50%;
+  }
+
+  #youtube::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    width: 45px;
+    height: 30px;
+    border: 15px solid transparent;
+    box-sizing: border-box;
+    border-left: 30px solid white;
+  }
+
+  #youtube span {
+    font-size: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+
+  #youtube:hover + #youtube-card {
+    display: block;
+    position: absolute;
+    bottom: 12px;
+    left: 10px;
+    padding: 25px 25px 25px 130px;
+    width: 300px;
+    background-color: white;
+    color: #4A235A; /* dark plum text */
+  }
+}
