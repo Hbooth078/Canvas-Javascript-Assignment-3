@@ -1,106 +1,68 @@
-/* Reset and base styles */
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
-  padding: 0;
+}
+
+body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   cursor: pointer;
 }
 
-/* Canvas background image */
-canvas#game {
-  background: url('Tv Wallpaper.jpg') no-repeat center center;
-  background-size: cover;
-  border: 2px solid #fff;
-}
-
-/* Header styling */
-header {
-  background-color: #34495e;
-  padding: 1em;
-  text-align: center;
-  color: #e67e22;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 2em;
-}
-
-header p {
-  margin-top: 0.5em;
-  font-size: 1em;
-  color: #f0f0f0;
-}
-
-/* Container layout */
 .container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  height: auto;
-  padding: 20px;
+  align-items: center;
+  height: 100%;
 }
 
-/* Score display */
 #score {
   position: absolute;
   top: 30px;
   right: 30px;
   font-size: 2em;
   font-weight: 900;
-  color: #e74c3c;
 }
 
-/* Introduction box */
 #introduction {
   width: 200px;
   height: 150px;
   position: absolute;
   font-weight: 600;
   font-size: 0.8em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   transition: opacity 2s;
-  color: #2c3e50;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
-  padding: 10px;
 }
 
-/* Restart button */
 #restart {
   width: 120px;
   height: 120px;
   position: absolute;
   border-radius: 50%;
   color: white;
-  background-color: #8e44ad;
+  background-color: red;
   border: none;
   font-weight: 700;
   font-size: 1.2em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: none;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Perfect score message */
 #perfect {
   position: absolute;
   opacity: 0;
   transition: opacity 2s;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #27ae60;
 }
 
-/* YouTube button and card */
 #youtube,
 #youtube-card {
   display: none;
 }
 
 @media (min-height: 425px) {
+  /** Youtube logo by https://codepen.io/alvaromontoro */
   #youtube {
     z-index: 2;
     display: block;
@@ -109,7 +71,7 @@ header p {
     position: absolute;
     bottom: 20px;
     left: 20px;
-    background: #e74c3c;
+    background: red;
     border-radius: 50% / 11%;
     transform: scale(0.8);
     transition: transform 0.5s;
@@ -128,7 +90,7 @@ header p {
     left: -6%;
     width: 112%;
     height: 85%;
-    background: #8e44ad;
+    background: red;
     border-radius: 9% / 50%;
   }
 
@@ -161,7 +123,5 @@ header p {
     padding: 25px 25px 25px 130px;
     width: 300px;
     background-color: white;
-    color: #2c3e50;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
 }
