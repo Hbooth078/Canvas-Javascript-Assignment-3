@@ -4,7 +4,7 @@ html, body {
 }
 
 body {
-  background: url('Tv Wallpaper.jpg') no-repeat center center fixed;
+background: url('images/Tv Wallpaper.jpg') no-repeat center center fixed;
   background-size: cover;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   cursor: pointer;
