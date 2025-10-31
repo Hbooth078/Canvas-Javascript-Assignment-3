@@ -27,6 +27,12 @@ header {
   height: 100%;
 }
 
+canvas#game {
+  background: url('Tv Wallpaper.jpg') no-repeat center center;
+  background-size: cover;
+  border: 2px solid #fff; /* optional styling */
+}
+
 #score {
   position: absolute;
   top: 30px;
