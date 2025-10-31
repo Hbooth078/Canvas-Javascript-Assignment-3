@@ -9,6 +9,11 @@ body {
   margin: 0;
   padding: 0;
 }
+canvas#game {
+  background: url('Tv Wallpaper.jpg') no-repeat center center;
+  background-size: cover;
+  border: 2px solid #fff; /* optional styling */
+}
 
 
 header {
