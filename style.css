@@ -1,72 +1,106 @@
-html,
-body {
+html, body {
   height: 100%;
   margin: 0;
-}
-
-body {
+  padding: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   cursor: pointer;
+  background-color: #F5EEF8; /* light lavender background */
 }
 
+/* Canvas background image */
+canvas#game {
+  background-color: white; 
+  background-size: cover;
+  border: 2px solid #D2B4DE; /* lavender border */
+}
+
+/* Header styling */
 header {
   background-color: #6C3483; /* deep purple */
-  color: #D2B4DE; /* lavender text */
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+  padding: 1em;
+  text-align: center;
+  color: #D2B4DE; /* soft lavender text */
 }
 
+header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+header p {
+  margin-top: 0.5em;
+  font-size: 1em;
+  color: #E8DAEF; /* pale purple */
+}
+
+/* Container layout */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  padding: 20px;
+}
+
+/* Score display */
 #score {
   position: absolute;
   top: 30px;
   right: 30px;
   font-size: 2em;
   font-weight: 900;
+  color: #AF7AC5; /* vibrant purple */
 }
 
+/* Introduction box */
 #introduction {
   width: 200px;
   height: 150px;
   position: absolute;
   font-weight: 600;
   font-size: 0.8em;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   transition: opacity 2s;
+  color: #4A235A; /* dark plum */
+  background-color: rgba(230, 230, 250, 0.8); /* lavender tint */
+  border-radius: 10px;
+  padding: 10px;
 }
 
+/* Restart button */
 #restart {
   width: 120px;
   height: 120px;
   position: absolute;
   border-radius: 50%;
-  color: black;
-  background-color: purple;
+  color: white;
+  background-color: #8E44AD; /* royal purple */
   border: none;
   font-weight: 700;
   font-size: 1.2em;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: none;
   cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* Perfect score message */
 #perfect {
   position: absolute;
   opacity: 0;
   transition: opacity 2s;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #BB8FCE; /* soft purple */
 }
 
+/* YouTube button and card */
 #youtube,
 #youtube-card {
   display: none;
 }
 
 @media (min-height: 425px) {
-  /** Youtube logo by https://codepen.io/alvaromontoro */
   #youtube {
     z-index: 2;
     display: block;
@@ -75,7 +109,7 @@ header {
     position: absolute;
     bottom: 20px;
     left: 20px;
-    background: purple;
+    background: #9B59B6; /* purple button */
     border-radius: 50% / 11%;
     transform: scale(0.8);
     transition: transform 0.5s;
@@ -94,7 +128,7 @@ header {
     left: -6%;
     width: 112%;
     height: 85%;
-    background: purple;
+    background: #9B59B6;
     border-radius: 9% / 50%;
   }
 
@@ -126,7 +160,7 @@ header {
     left: 10px;
     padding: 25px 25px 25px 130px;
     width: 300px;
-    background-color: light-lavender;
+    background-color: white;
+    color: #4A235A; /* dark plum text */
   }
 }
-
