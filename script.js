@@ -1,3 +1,19 @@
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+
+// Load the background image
+const background = new Image();
+background.src = "Tv Wallpaper.jpg"; // Make sure the file name and path are correct
+
+background.onload = function () {
+  // Draw the background image once it's loaded
+  ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+  // Then start the game
+  resetGame(); // or whatever function starts your game
+};
+
+
 // Extend the base functionality of JavaScript
 Array.prototype.last = function () {
   return this[this.length - 1];
