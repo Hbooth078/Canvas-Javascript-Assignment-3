@@ -1,21 +1,20 @@
+/* Reset and base styles */
 html, body {
   height: 100%;
   margin: 0;
-}
-
-body {
+  padding: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   cursor: pointer;
-  margin: 0;
-  padding: 0;
 }
+
+/* Canvas background image */
 canvas#game {
   background: url('Tv Wallpaper.jpg') no-repeat center center;
   background-size: cover;
-  border: 2px solid #fff; /* optional styling */
+  border: 2px solid #fff;
 }
 
-
+/* Header styling */
 header {
   background-color: #34495e;
   padding: 1em;
@@ -23,14 +22,28 @@ header {
   color: #e67e22;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+header h1 {
+  margin: 0;
+  font-size: 2em;
 }
 
+header p {
+  margin-top: 0.5em;
+  font-size: 1em;
+  color: #f0f0f0;
+}
 
+/* Container layout */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  padding: 20px;
+}
+
+/* Score display */
 #score {
   position: absolute;
   top: 30px;
@@ -40,13 +53,13 @@ header {
   color: #e74c3c;
 }
 
+/* Introduction box */
 #introduction {
   width: 200px;
   height: 150px;
   position: absolute;
   font-weight: 600;
   font-size: 0.8em;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   transition: opacity 2s;
   color: #2c3e50;
@@ -55,6 +68,7 @@ header {
   padding: 10px;
 }
 
+/* Restart button */
 #restart {
   width: 120px;
   height: 120px;
@@ -65,12 +79,12 @@ header {
   border: none;
   font-weight: 700;
   font-size: 1.2em;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: none;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* Perfect score message */
 #perfect {
   position: absolute;
   opacity: 0;
@@ -80,6 +94,7 @@ header {
   color: #27ae60;
 }
 
+/* YouTube button and card */
 #youtube,
 #youtube-card {
   display: none;
