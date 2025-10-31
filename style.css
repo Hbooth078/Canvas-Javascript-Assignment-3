@@ -9,6 +9,10 @@ body {
   cursor: pointer;
 }
 
+header {
+  background-color: #6C3483; /* deep purple */
+  color: #D2B4DE; /* lavender text */
+
 .container {
   display: flex;
   justify-content: center;
