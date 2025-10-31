@@ -7,11 +7,6 @@ html, body {
   background-color: #F5EEF8; /* light lavender background */
 }
 
-/* Canvas background image */
-canvas#game {
-  background-color: #8E44AD; /* royal purple */
-}
-
 /* Header styling */
 header {
   background-color: #6C3483; /* deep purple */
