@@ -1,107 +1,68 @@
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
-  padding: 0;
+}
+
+body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: url('background.jpg') no-repeat center center fixed;
-  background-size: cover;
   cursor: pointer;
 }
 
-/* Header styling */
-header {
-  background-color: #6C3483;
-  padding: 1em;
-  text-align: center;
-  color: #D2B4DE;
-}
-
-/* Reflection paragraph */
-.reflection {
-  text-align: center;
-  margin: 20px;
-  font-size: 1em;
-  color: #4A235A;
-  background-color: rgba(255, 255, 255, 0.6);
-  padding: 10px;
-  border-radius: 10px;
-}
-
-/* Canvas styling */
-canvas#game {
-  background: url('Tv Wallpaper.jpg') no-repeat center center;
-  background-size: cover;
-  border: 2px solid #D2B4DE;
-}
-
-/* Container layout */
 .container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  height: auto;
-  padding: 20px;
+  align-items: center;
+  height: 100%;
 }
 
-/* Score display */
 #score {
   position: absolute;
   top: 30px;
   right: 30px;
   font-size: 2em;
   font-weight: 900;
-  color: #AF7AC5;
 }
 
-/* Introduction box */
 #introduction {
   width: 200px;
   height: 150px;
   position: absolute;
   font-weight: 600;
   font-size: 0.8em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   transition: opacity 2s;
-  color: #4A235A;
-  background-color: rgba(230, 230, 250, 0.8);
-  border-radius: 10px;
-  padding: 10px;
 }
 
-/* Restart button */
 #restart {
   width: 120px;
   height: 120px;
   position: absolute;
   border-radius: 50%;
   color: white;
-  background-color: #8E44AD;
+  background-color: red;
   border: none;
   font-weight: 700;
   font-size: 1.2em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: none;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Perfect score message */
 #perfect {
   position: absolute;
   opacity: 0;
   transition: opacity 2s;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #BB8FCE;
 }
 
-/* YouTube button and card */
 #youtube,
 #youtube-card {
   display: none;
 }
 
 @media (min-height: 425px) {
+  /** Youtube logo by https://codepen.io/alvaromontoro */
   #youtube {
     z-index: 2;
     display: block;
@@ -110,7 +71,7 @@ canvas#game {
     position: absolute;
     bottom: 20px;
     left: 20px;
-    background: #9B59B6; /* purple button */
+    background: red;
     border-radius: 50% / 11%;
     transform: scale(0.8);
     transition: transform 0.5s;
@@ -129,7 +90,7 @@ canvas#game {
     left: -6%;
     width: 112%;
     height: 85%;
-    background: #9B59B6;
+    background: red;
     border-radius: 9% / 50%;
   }
 
@@ -162,6 +123,5 @@ canvas#game {
     padding: 25px 25px 25px 130px;
     width: 300px;
     background-color: white;
-    color: #4A235A; /* dark plum text */
   }
 }
