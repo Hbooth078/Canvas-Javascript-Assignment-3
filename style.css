@@ -9,9 +9,7 @@ html, body {
 
 /* Canvas background image */
 canvas#game {
-  background-color: white; 
-  background-size: cover;
-  border: 2px solid #D2B4DE; /* lavender border */
+  background-color: #8E44AD; /* royal purple */
 }
 
 /* Header styling */
