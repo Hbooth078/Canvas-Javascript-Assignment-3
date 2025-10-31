@@ -8,7 +8,23 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   cursor: pointer;
 }
+header {
+  background-color: #6C3483;
+  padding: 1em;
+  text-align: center;
+  color: #D2B4DE;
+}
 
+/* Reflection paragraph */
+.reflection {
+  text-align: center;
+  margin: 20px;
+  font-size: 1em;
+  color: #4A235A;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 10px;
+  border-radius: 10px;
+}
 .container {
   display: flex;
   justify-content: center;
